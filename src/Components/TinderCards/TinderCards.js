@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./TinderCard.css";
 import TinderCard from "react-tinder-card";
-import axios from '../axios'
+import axios from "../axios";
 
 const TinderCards = () => {
-    const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState([]);
 
-    useEffect(() => {
-      async function getData(){
-        const req = await axios.get('/tinderCards')
-        setPeople(req.data)
-      }
-      getData()
-    }, [])
+  useEffect(() => {
+    async function getData() {
+      const req = await axios.get("/tinderCards");
+      setPeople(req.data);
+    }
+    getData();
+  }, []);
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
